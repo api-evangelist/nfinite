@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: probed
+source: >-
+  Observed live from the undocumented internal app API at https://my.nfinite.app/api.
+  Nfinite publishes no OpenAPI, developer portal, or auth documentation; the
+  requirement below was inferred from a 400 VALIDATION_ERROR returned by
+  GET /api/oembed listing "Required on path token" among the missing parameters.
+summary:
+  types:
+  - apiKey
+  note: >-
+    No public developer program. This is an internal, session/token-gated app
+    API backing the my.nfinite.app and display.nfinite.app applications. Tokens
+    are not self-serviceable via any documented flow.
+schemes:
+- name: token
+  type: apiKey
+  in: query
+  parameter: token
+  description: >-
+    An opaque access token supplied as the `token` query parameter. Required
+    (alongside a resource `url`) by the oEmbed endpoint; a request without it
+    returns HTTP 400 code=VALIDATION_ERROR with "Required on path token".
+  sources:
+  - https://my.nfinite.app/api/oembed
+  - https://display.nfinite.app/api/oembed

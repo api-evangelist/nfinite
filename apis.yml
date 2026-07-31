@@ -1,25 +1,85 @@
 aid: nfinite
 name: Nfinite
-description: Nfinite is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Nfinite (formerly Hubstairs) is a visual intelligence platform for the digital
+  shelf. It helps consumer brands and retailers automatically analyze, generate,
+  and monitor compliant product visuals — detecting visual compliance gaps across
+  every retailer and brand and fixing them at scale using AI-generated 3D and
+  synthetic product imagery. The product is delivered as a web application
+  (my.nfinite.app) rather than a public developer API; no OpenAPI, developer
+  portal, or published documentation exists at the time of enrichment. Backed by
+  Insight Partners.
 url: https://raw.githubusercontent.com/api-evangelist/nfinite/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/63ebb9bcdb3fa05b439326d3/6a3a44ec48916bf40cbc2d69_Website%20Banner.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - insight-partners
+x-former-name: Hubstairs
 x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Visual Intelligence
+- Digital Shelf
+- Product Imagery
+- Retail
+- E-Commerce
+- Artificial Intelligence
+- Content Generation
+apis:
+- name: Nfinite oEmbed
+  description: >-
+    Undocumented internal oEmbed endpoint backing the Nfinite applications. Returns
+    embeddable representations of product visuals. Requires an opaque `token` query
+    parameter plus a resource `url`; there is no public developer program or
+    published documentation. Captured live during enrichment.
+  humanURL: https://my.nfinite.app/
+  baseURL: https://my.nfinite.app/api
+  tags:
+  - oEmbed
+  - Product Imagery
+  x-status: undocumented-internal
+  properties:
+  - type: Authentication
+    url: authentication/nfinite-authentication.yml
+  - type: ErrorCatalog
+    url: errors/nfinite-problem-types.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/nfinite-domain-security.yml
 - type: Website
   url: https://www.nfinite.app/
+- type: Blog
+  url: https://www.nfinite.app/blog
+- type: TermsOfService
+  url: https://www.nfinite.app/terms
+- type: PrivacyPolicy
+  url: https://www.nfinite.app/privacy-policy
+- type: SignUp
+  url: https://my.nfinite.app/
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 3
+  pass: local-v1

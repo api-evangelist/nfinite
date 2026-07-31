@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: probed
+format: custom
+source: >-
+  Observed live from the undocumented internal app API at https://my.nfinite.app/api
+  and https://display.nfinite.app/api. Nfinite publishes no OpenAPI or error
+  reference; the envelope below was captured directly from a 400 response to
+  GET /api/oembed with missing query parameters. Nfinite does NOT use RFC 9457
+  application/problem+json — errors are returned as a custom JSON object.
+envelope:
+  media_type: application/json; charset=utf-8
+  shape: >-
+    { "code": string, "requestId": string, "message": string,
+    "detailsMessages": string[] }
+  notes: >-
+    `code` is a machine-readable SCREAMING_SNAKE_CASE token; `requestId` is a
+    UUID suitable for support correlation; `detailsMessages` is a human-readable
+    array of field-level validation notes.
+problems:
+- status: 400
+  code: VALIDATION_ERROR
+  title: Bad Request
+  meaning: >-
+    One or more required query parameters were missing or invalid. Observed on
+    GET /api/oembed when `url` and/or `token` were absent.
+  remediation: >-
+    Read the `detailsMessages` array for the offending fields (e.g.
+    "Required on path url", "Required on path token") and resupply them.
+  observed_example: >-
+    {"code":"VALIDATION_ERROR","requestId":"47dd6dff-1109-4c81-bde7-f0796b4b702e","message":"Invalid
+    query","detailsMessages":["Required on path url","Required on path token"]}
