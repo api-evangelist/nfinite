@@ -23,15 +23,16 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Unknown
+  confidence: low
   source:
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://cdn.prod.website-files.com/63ebb9bcdb3fa05b439326d3/6a3a44ec48916bf40cbc2d69_Website%20Banner.png
 x-type: company
